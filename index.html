@@ -7,23 +7,13 @@
 <link href='toggle-switch.css' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
 <style>
-<<<<<<< HEAD
-html {
-	min-width: 1120px;
-}
-=======
->>>>>>> update
 body {
 	font-family: 'Fjalla One', sans-serif;
 	font-size: 10px;
 	color: #EEE;
 	background-color: #41464f;
-<<<<<<< HEAD
-        -webkit-text-size-adjust: none;
-=======
 	min-width: 1120px;
 	-webkit-text-size-adjust: 100%;
->>>>>>> update
 }
 #nav-fancy {
 	height: 40px;
@@ -522,16 +512,11 @@ setIntervalDelay.onchange = function() {
 	}
 }
 function adjustTextboxSize(el) {
-<<<<<<< HEAD
-	var targetWidth = (el.value.length+2) * 8;
-	el.style.width = targetWidth <= (document.body.clientWidth - (1120 - 32)) ? targetWidth + 'px' : (document.body.clientWidth - (1120 - 32)) + 'px';
-=======
 	var targetWidth = (el.value.length+2) * 8,
 		defaultWidth = (el.defaultValue.length+2) * 8,
 		pageMinWidth = parseInt(window.getComputedStyle(document.body).getPropertyValue("min-width").replace(/\D/g, '')),
 		pageCurrWidth = document.body.clientWidth;
 	el.style.width = targetWidth <= (pageCurrWidth - (pageMinWidth - defaultWidth)) ? targetWidth + 'px' : (pageCurrWidth - (pageMinWidth - defaultWidth)) + 'px';
->>>>>>> update
 };
 setIntervalDelay.onkeyup = function() {adjustTextboxSize(setIntervalDelay);}
 setIntervalDelay.onkeydown = function() {adjustTextboxSize(setIntervalDelay);}
