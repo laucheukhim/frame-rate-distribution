@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Frame Rate Distribution</title>
+<link href='reset.css' rel='stylesheet' type='text/css'>
+<link href='toggle-switch.css' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+<style>
+html {
+	min-width: 960px;
+}
+body {
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 10px;
+	color: #EEE;
+	background-color: #41464f;
+}
+#nav-fancy {
+	height: 40px;
+	width: 100%;
+	min-width: 960px;
+	position: fixed;
+	background: #5d6466;
+	background: -moz-linear-gradient(top, #5d6466 0%, #2f3331 50%, #0a0e0a 51%, #0a0809 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5d6466), color-stop(50%,#2f3331), color-stop(51%,#0a0e0a), color-stop(100%,#0a0809));
+	background: -webkit-linear-gradient(top, #5d6466 0%,#2f3331 50%,#0a0e0a 51%,#0a0809 100%);
+	background: -o-linear-gradient(top, #5d6466 0%,#2f3331 50%,#0a0e0a 51%,#0a0809 100%);
+	background: -ms-linear-gradient(top, #5d6466 0%,#2f3331 50%,#0a0e0a 51%,#0a0809 100%);
+	background: linear-gradient(to bottom, #5d6466 0%,#2f3331 50%,#0a0e0a 51%,#0a0809 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5d6466', endColorstr='#0a0809',GradientType=0 );
+	-moz-box-shadow:    0px 1px 4px 0px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);
+	box-shadow:         0px 1px 4px 0px rgba(0,0,0,0.5);
+}
+#nav-content {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#logo {
+	font-size: 20px;
+	line-height: 40px;
+	color: #DDD;
+	text-shadow: 0 -1px 0 #000000;
+	text-transform: uppercase;
+	padding-left: 10px;
+	padding-right: 10px;
+	float: left;
+}
+.highlight span:nth-child(1) {
+	animation:			highlight1 2s;
+	-moz-animation:		highlight1 2s;
+	-webkit-animation:	highlight1 2s;
+	-o-animation:		highlight1 2s;
+}
+.highlight span:nth-child(2) {
+	animation:			highlight2 2s;
+	-moz-animation:		highlight2 2s;
+	-webkit-animation:	highlight2 2s;
+	-o-animation:		highlight2 2s;
+}
+.highlight span:nth-child(3) {
+	animation:			highlight3 2s;
+	-moz-animation:		highlight3 2s;
+	-webkit-animation:	highlight3 2s;
+	-o-animation:		highlight3 2s;
+}
+.highlight span:nth-child(4) {
+	animation:			highlight4 2s;
+	-moz-animation:		highlight4 2s;
+	-webkit-animation:	highlight4 2s;
+	-o-animation:		highlight4 2s;
+}
+.highlight span:nth-child(5) {
+	animation:			highlight5 2s;
+	-moz-animation:		highlight5 2s;
+	-webkit-animation:	highlight5 2s;
+	-o-animation:		highlight5 2s;
+}
+.highlight span:nth-child(6) {
+	animation:			highlight6 2s;
+	-moz-animation:		highlight6 2s;
+	-webkit-animation:	highlight6 2s;
+	-o-animation:		highlight6 2s;
+}
+.highlight span:nth-child(7) {
+	animation:			highlight7 2s;
+	-moz-animation:		highlight7 2s;
+	-webkit-animation:	highlight7 2s;
+	-o-animation:		highlight7 2s;
+}
+.highlight span:nth-child(8) {
+	animation:			highlight8 2s;
+	-moz-animation:		highlight8 2s;
+	-webkit-animation:	highlight8 2s;
+	-o-animation:		highlight8 2s;
+}
+.highlight span:nth-child(9) {
+	animation:			highlight9 2s;
+	-moz-animation:		highlight9 2s;
+	-webkit-animation:	highlight9 2s;
+	-o-animation:		highlight9 2s;
+}
+.highlight span:nth-child(10) {
+	animation:			highlight10 2s;
+	-moz-animation:		highlight10 2s;
+	-webkit-animation:	highlight10 2s;
+	-o-animation:		highlight10 2s;
+}
+.highlight span:nth-child(11) {
+	animation:			highlight11 2s;
+	-moz-animation:		highlight11 2s;
+	-webkit-animation:	highlight11 2s;
+	-o-animation:		highlight11 2s;
+}
+.highlight span:nth-child(12) {
+	animation:			highlight12 2s;
+	-moz-animation:		highlight12 2s;
+	-webkit-animation:	highlight12 2s;
+	-o-animation:		highlight12 2s;
+}
+.highlight span:nth-child(13) {
+	animation:			highlight13 2s;
+	-moz-animation:		highlight13 2s;
+	-webkit-animation:	highlight13 2s;
+	-o-animation:		highlight13 2s;
+}
+.highlight span:nth-child(14) {
+	animation:			highlight14 2s;
+	-moz-animation:		highlight14 2s;
+	-webkit-animation:	highlight14 2s;
+	-o-animation:		highlight14 2s;
+}
+.highlight span:nth-child(15) {
+	animation:			highlight15 2s;
+	-moz-animation:		highlight15 2s;
+	-webkit-animation:	highlight15 2s;
+	-o-animation:		highlight15 2s;
+}
+.highlight span:nth-child(16) {
+	animation:			highlight16 2s;
+	-moz-animation:		highlight16 2s;
+	-webkit-animation:	highlight16 2s;
+	-o-animation:		highlight16 2s;
+}
+.highlight span:nth-child(17) {
+	animation:			highlight17 2s;
+	-moz-animation:		highlight17 2s;
+	-webkit-animation:	highlight17 2s;
+	-o-animation:		highlight17 2s;
+}
+.highlight span:nth-child(18) {
+	animation:			highlight18 2s;
+	-moz-animation:		highlight18 2s;
+	-webkit-animation:	highlight18 2s;
+	-o-animation:		highlight18 2s;
+}
+.highlight span:nth-child(19) {
+	animation:			highlight19 2s;
+	-moz-animation:		highlight19 2s;
+	-webkit-animation:	highlight19 2s;
+	-o-animation:		highlight19 2s;
+}
+.highlight span:nth-child(20) {
+	animation:			highlight20 2s;
+	-moz-animation:		highlight20 2s;
+	-webkit-animation:	highlight20 2s;
+	-o-animation:		highlight20 2s;
+}
+.highlight span:nth-child(21) {
+	animation:			highlight21 2s;
+	-moz-animation:		highlight21 2s;
+	-webkit-animation:	highlight21 2s;
+	-o-animation:		highlight21 2s;
+}
+@keyframes 			highlight1 { 0% {color: #DDD;}	1% {color:#DDD;}	3% {color:#FFF;}	5% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight1 { 0% {color: #DDD;}	1% {color:#DDD;}	3% {color:#FFF;}	5% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight1 { 0% {color: #DDD;}	1% {color:#DDD;}	3% {color:#FFF;}	5% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight1 { 0% {color: #DDD;}	1% {color:#DDD;}	3% {color:#FFF;}	5% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight2 { 0% {color: #DDD;}	3% {color:#DDD;}	5% {color:#FFF;}	7% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight2 { 0% {color: #DDD;}	3% {color:#DDD;}	5% {color:#FFF;}	7% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight2 { 0% {color: #DDD;}	3% {color:#DDD;}	5% {color:#FFF;}	7% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight2 { 0% {color: #DDD;}	3% {color:#DDD;}	5% {color:#FFF;}	7% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight3 { 0% {color: #DDD;}	5% {color:#DDD;}	7% {color:#FFF;}	9% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight3 { 0% {color: #DDD;}	5% {color:#DDD;}	7% {color:#FFF;}	9% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight3 { 0% {color: #DDD;}	5% {color:#DDD;}	7% {color:#FFF;}	9% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight3 { 0% {color: #DDD;}	5% {color:#DDD;}	7% {color:#FFF;}	9% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight4 { 0% {color: #DDD;}	7% {color:#DDD;}	9% {color:#FFF;}	11% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight4 { 0% {color: #DDD;}	7% {color:#DDD;}	9% {color:#FFF;}	11% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight4 { 0% {color: #DDD;}	7% {color:#DDD;}	9% {color:#FFF;}	11% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight4 { 0% {color: #DDD;}	7% {color:#DDD;}	9% {color:#FFF;}	11% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight5 { 0% {color: #DDD;}	9% {color:#DDD;}	11% {color:#FFF;}	13% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight5 { 0% {color: #DDD;}	9% {color:#DDD;}	11% {color:#FFF;}	13% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight5 { 0% {color: #DDD;}	9% {color:#DDD;}	11% {color:#FFF;}	13% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight5 { 0% {color: #DDD;}	9% {color:#DDD;}	11% {color:#FFF;}	13% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight6 { 0% {color: #DDD;}	11% {color:#DDD;}	13% {color:#FFF;}	15% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight6 { 0% {color: #DDD;}	11% {color:#DDD;}	13% {color:#FFF;}	15% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight6 { 0% {color: #DDD;}	11% {color:#DDD;}	13% {color:#FFF;}	15% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight6 { 0% {color: #DDD;}	11% {color:#DDD;}	13% {color:#FFF;}	15% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight7 { 0% {color: #DDD;}	13% {color:#DDD;}	15% {color:#FFF;}	17% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight7 { 0% {color: #DDD;}	13% {color:#DDD;}	15% {color:#FFF;}	17% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight7 { 0% {color: #DDD;}	13% {color:#DDD;}	15% {color:#FFF;}	17% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight7 { 0% {color: #DDD;}	13% {color:#DDD;}	15% {color:#FFF;}	17% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight8 { 0% {color: #DDD;}	15% {color:#DDD;}	17% {color:#FFF;}	19% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight8 { 0% {color: #DDD;}	15% {color:#DDD;}	17% {color:#FFF;}	19% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight8 { 0% {color: #DDD;}	15% {color:#DDD;}	17% {color:#FFF;}	19% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight8 { 0% {color: #DDD;}	15% {color:#DDD;}	17% {color:#FFF;}	19% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight9 { 0% {color: #DDD;}	17% {color:#DDD;}	19% {color:#FFF;}	21% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight9 { 0% {color: #DDD;}	17% {color:#DDD;}	19% {color:#FFF;}	21% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight9 { 0% {color: #DDD;}	17% {color:#DDD;}	19% {color:#FFF;}	21% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight9 { 0% {color: #DDD;}	17% {color:#DDD;}	19% {color:#FFF;}	21% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight10 { 0% {color: #DDD;}	19% {color:#DDD;}	21% {color:#FFF;}	23% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight10 { 0% {color: #DDD;}	19% {color:#DDD;}	21% {color:#FFF;}	23% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight10 { 0% {color: #DDD;}	19% {color:#DDD;}	21% {color:#FFF;}	23% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight10 { 0% {color: #DDD;}	19% {color:#DDD;}	21% {color:#FFF;}	23% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight11 { 0% {color: #DDD;}	21% {color:#DDD;}	23% {color:#FFF;}	25% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight11 { 0% {color: #DDD;}	21% {color:#DDD;}	23% {color:#FFF;}	25% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight11 { 0% {color: #DDD;}	21% {color:#DDD;}	23% {color:#FFF;}	25% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight11 { 0% {color: #DDD;}	21% {color:#DDD;}	23% {color:#FFF;}	25% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight12 { 0% {color: #DDD;}	23% {color:#DDD;}	25% {color:#FFF;}	27% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight12 { 0% {color: #DDD;}	23% {color:#DDD;}	25% {color:#FFF;}	27% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight12 { 0% {color: #DDD;}	23% {color:#DDD;}	25% {color:#FFF;}	27% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight12 { 0% {color: #DDD;}	23% {color:#DDD;}	25% {color:#FFF;}	27% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight13 { 0% {color: #DDD;}	25% {color:#DDD;}	27% {color:#FFF;}	29% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight13 { 0% {color: #DDD;}	25% {color:#DDD;}	27% {color:#FFF;}	29% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight13 { 0% {color: #DDD;}	25% {color:#DDD;}	27% {color:#FFF;}	29% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight13 { 0% {color: #DDD;}	25% {color:#DDD;}	27% {color:#FFF;}	29% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight14 { 0% {color: #DDD;}	27% {color:#DDD;}	29% {color:#FFF;}	31% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight14 { 0% {color: #DDD;}	27% {color:#DDD;}	29% {color:#FFF;}	31% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight14 { 0% {color: #DDD;}	27% {color:#DDD;}	29% {color:#FFF;}	31% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight14 { 0% {color: #DDD;}	27% {color:#DDD;}	29% {color:#FFF;}	31% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight15 { 0% {color: #DDD;}	29% {color:#DDD;}	31% {color:#FFF;}	33% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight15 { 0% {color: #DDD;}	29% {color:#DDD;}	31% {color:#FFF;}	33% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight15 { 0% {color: #DDD;}	29% {color:#DDD;}	31% {color:#FFF;}	33% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight15 { 0% {color: #DDD;}	29% {color:#DDD;}	31% {color:#FFF;}	33% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight16 { 0% {color: #DDD;}	31% {color:#DDD;}	33% {color:#FFF;}	35% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight16 { 0% {color: #DDD;}	31% {color:#DDD;}	33% {color:#FFF;}	35% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight16 { 0% {color: #DDD;}	31% {color:#DDD;}	33% {color:#FFF;}	35% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight16 { 0% {color: #DDD;}	31% {color:#DDD;}	33% {color:#FFF;}	35% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight17 { 0% {color: #DDD;}	33% {color:#DDD;}	35% {color:#FFF;}	37% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight17 { 0% {color: #DDD;}	33% {color:#DDD;}	35% {color:#FFF;}	37% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight17 { 0% {color: #DDD;}	33% {color:#DDD;}	35% {color:#FFF;}	37% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight17 { 0% {color: #DDD;}	33% {color:#DDD;}	35% {color:#FFF;}	37% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight18 { 0% {color: #DDD;}	35% {color:#DDD;}	37% {color:#FFF;}	39% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight18 { 0% {color: #DDD;}	35% {color:#DDD;}	37% {color:#FFF;}	39% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight18 { 0% {color: #DDD;}	35% {color:#DDD;}	37% {color:#FFF;}	39% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight18 { 0% {color: #DDD;}	35% {color:#DDD;}	37% {color:#FFF;}	39% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight19 { 0% {color: #DDD;}	37% {color:#DDD;}	39% {color:#FFF;}	41% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight19 { 0% {color: #DDD;}	37% {color:#DDD;}	39% {color:#FFF;}	41% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight19 { 0% {color: #DDD;}	37% {color:#DDD;}	39% {color:#FFF;}	41% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight19 { 0% {color: #DDD;}	37% {color:#DDD;}	39% {color:#FFF;}	41% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight20 { 0% {color: #DDD;}	39% {color:#DDD;}	41% {color:#FFF;}	43% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight20 { 0% {color: #DDD;}	39% {color:#DDD;}	41% {color:#FFF;}	43% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight20 { 0% {color: #DDD;}	39% {color:#DDD;}	41% {color:#FFF;}	43% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight20 { 0% {color: #DDD;}	39% {color:#DDD;}	41% {color:#FFF;}	43% {color: #DDD;}	100% {color: #DDD;}	}
+@keyframes 			highlight21 { 0% {color: #DDD;}	41% {color:#DDD;}	43% {color:#FFF;}	45% {color: #DDD;}	100% {color: #DDD;}	}
+@-moz-keyframes 	highlight21 { 0% {color: #DDD;}	41% {color:#DDD;}	43% {color:#FFF;}	45% {color: #DDD;}	100% {color: #DDD;}	}
+@-webkit-keyframes 	highlight21 { 0% {color: #DDD;}	41% {color:#DDD;}	43% {color:#FFF;}	45% {color: #DDD;}	100% {color: #DDD;}	}
+@-o-keyframes 		highlight21 { 0% {color: #DDD;}	41% {color:#DDD;}	43% {color:#FFF;}	45% {color: #DDD;}	100% {color: #DDD;}	}
+#nav-fancy .tab {
+	font-size: 16px;
+	line-height: 40px;
+	color: rgba(255,255,255,0.6);
+	text-shadow: 0 -1px 0 #000000;
+	padding-left: 10px;
+	padding-right: 10px;
+	float: left;
+	cursor: pointer;
+}
+#nav-fancy .tab:not(.selected-tab):hover {
+	color: rgba(255,255,255,0.8);
+	background-color: rgba(255, 255, 255, 0.1);
+}
+#nav-fancy .selected-tab {
+	color: rgba(220,240,255,1);
+	background-color: rgba(0, 150, 255, 0.5);
+}
+#nav-fancy #pause-tab {
+	float: left;
+	font-size: 16px;
+	color: #FFF;
+	text-shadow: 0 -1px 0 #000000;
+	height: 20px;
+	width: 50px;
+	line-height: 20px;
+	text-align: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 8px;
+	margin-left: 10px;
+	margin-right: 10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow:    inset 0 1px 1px rgba(255,255,255,0.3), 0 0 3px 1px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,0.3), 0 0 3px 1px rgba(0,0,0,0.3);
+	box-shadow:         inset 0 1px 1px rgba(255,255,255,0.3), 0 0 3px 1px rgba(0,0,0,0.3);
+	background: #a90329;
+	background: -moz-linear-gradient(top,  #a90329 0%, #8f0222 44%, #6d0019 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019));
+	background: -webkit-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%);
+	background: -o-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%);
+	background: -ms-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%);
+	background: linear-gradient(to bottom,  #a90329 0%,#8f0222 44%,#6d0019 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
+	cursor: pointer;
+}
+#nav-fancy #pause-tab:hover {
+	background: #cc2314;
+	background: -moz-linear-gradient(top,  #cc2314 0%, #990303 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cc2314), color-stop(100%,#990303));
+	background: -webkit-linear-gradient(top,  #cc2314 0%,#990303 100%);
+	background: -o-linear-gradient(top,  #cc2314 0%,#990303 100%);
+	background: -ms-linear-gradient(top,  #cc2314 0%,#990303 100%);
+	background: linear-gradient(to bottom,  #cc2314 0%,#990303 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc2314', endColorstr='#990303',GradientType=0 );
+}
+#nav-fancy #format-tab, #nav-fancy #count-tab {
+	float: right;
+	height: 30px;
+	margin-top: 3px;
+	margin-right: 10px;
+}
+#nav-padding {
+	height: 50px;
+}
+div.datatable {
+	display:table;width:100%;
+}
+div.datatable div.datarow {
+	display:table-row;
+}
+.unit-label {
+	display:table-cell;
+	width:5%;
+	min-width:50px;
+	font-size:10px;
+	line-height:12px;
+	text-align:right;
+}
+.unit-label span.unit {
+	font-size:8px;
+	color:#bbb;
+}
+.bar-container {
+	display:table-cell;
+	width:90%;
+}
+.bar {
+	display: inline-block;
+	margin-bottom: 1px;
+	font-size:10px;
+	line-height:12px;
+}
+.bar-label {
+	font-size:10px;
+	line-height:12px;
+}
+#footer-padding {
+	height: 20px;
+}
+</style>
+</head>
+
+<body>
+<div id="nav-fancy"><div id="nav-content">
+	<div id="logo" title="Nope. This is a CSS animation." onmouseover="if(this.className!=='highlight'){this.className='highlight';var highlightEl=this;setTimeout(function(){highlightEl.className='';},2000);}">
+    	<span>F</span><span>r</span><span>a</span><span>m</span><span>e</span> <span>r</span><span>a</span><span>t</span><span>e</span>
+        <span>D</span><span>i</span><span>s</span><span>t</span><span>r</span><span>i</span><span>b</span><span>u</span><span>t</span><span>i</span><span>o</span><span>n</span>
+    </div>
+	<div id="setInterval-tab" class="tab selected-tab">setInterval <input id="setInterval-delay" type="text" value="16" style="position: relative; width:32px; height: 20px; outline:none; border:none; background-color:#41464f; -moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.8); -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.8); box-shadow: inset 0 0 3px rgba(0,0,0,0.8); font-family: 'Fjalla One', sans-serif; font-size: 16px; line-height:12px; color:#fff; text-shadow: 0 -1px 0 #000000; text-align:center;" /></div>
+    <div id="requestAnimationFrame-tab" class="tab">requestAnimationFrame</div>
+    <div id="pause-tab">PAUSE</div>
+    <div id="count-tab">
+        <label style="color:#fff;">Count</label>
+        <div class="switch candy blue" style="width:150px;height: 20px; font-family: sans-serif;">
+            <input id="count-percentage" name="count" type="radio" checked>
+            <label for="count-percentage" onclick="chooseCount(this)" style="line-height:20px; cursor:pointer; outline: none;">percentage</label>
+    
+            <input id="count-occurrence" name="count" type="radio">	
+            <label for="count-occurrence" onclick="chooseCount(this)" style="line-height:20px; cursor:pointer; outline: none;">occurrence</label>
+            
+            <span class="slide-button"></span>
+        </div>
+    </div>
+    <div id="format-tab">
+        <label style="color:#fff;">Format</label>
+        <div class="switch candy blue" style="width:100px;height: 20px; font-family: sans-serif;">
+            <input id="format-duration" name="format" type="radio" checked>
+            <label for="format-duration" onclick="chooseFormat(this)" style="line-height:20px; cursor:pointer; outline: none;">duration</label>
+    
+            <input id="format-fps" name="format" type="radio">	
+            <label for="format-fps" onclick="chooseFormat(this)" style="line-height:20px; cursor:pointer; outline: none;">fps</label>
+            
+            <span class="slide-button"></span>
+        </div>
+    </div>
+</div></div>
+<div id="nav-padding"></div>
+<div id="setInterval-container">
+    <div id="setInterval-fps"></div>
+    <div id="setInterval-report"></div>
+</div>
+<div id="requestAnimationFrame-container">
+    <div id="requestAnimationFrame-fps"></div>
+    <div id="requestAnimationFrame-report"></div>
+</div>
+<div id="footer-padding"></div>
+<script>
+/* Function preparations */
+// object size
+Object.size = function(obj) {
+	var size = 0, key;
+	for (key in obj) {
+		if (obj.hasOwnProperty(key)) size++;
+	}
+	return size;
+};
+// requestAnimationFrame
+(function() {
+	var requestAnimationFrame = window.requestAnimationFrame 
+		|| window.mozRequestAnimationFrame 
+		|| window.webkitRequestAnimationFrame 
+		|| window.msRequestAnimationFrame;
+	window.requestAnimationFrame = requestAnimationFrame;
+	var cancelAnimationFrame = window.CancelAnimationFrame
+		|| window.CancelRequestAnimationFrame
+		|| window.mozCancelAnimationFrame
+		|| window.mozCancelRequestAnimationFrame
+		|| window.msCancelAnimationFrame
+		|| window.msCancelRequestAnimationFrame
+		|| window.webkitCancelAnimationFrame
+		|| window.webkitCancelRequestAnimationFrame;
+	window.cancelAnimationFrame = cancelAnimationFrame;
+})();
+// input is number
+function isNumberKey(evt) {
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+	if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+	return true;
+}
+
+/* Define variables */
+// collection for setInterval
+var setIntervalCollection = {
+	tab: document.getElementById("setInterval-tab"),
+	container: document.getElementById("setInterval-container"),
+	fpsReport: document.getElementById("setInterval-fps"),
+	report: document.getElementById("setInterval-report"),
+	timelog: {},
+	fpslog: {},
+	prevTime: Date.now(),
+	profiler: null,
+	process: null
+}
+// collection for requestAnimationFrame
+var requestAnimationFrameCollection = {
+	tab: document.getElementById("requestAnimationFrame-tab"),
+	container: document.getElementById("requestAnimationFrame-container"),
+	fpsReport: document.getElementById("requestAnimationFrame-fps"),
+	report: document.getElementById("requestAnimationFrame-report"),
+	timelog: {},
+	fpslog: {},
+	prevTime: Date.now(),
+	profiler: null,
+	process: null
+}
+// interface
+var setIntervalDelay = document.getElementById("setInterval-delay"),
+	formatTab = document.getElementById("format-tab"),
+	format = "duration",
+	countTab = document.getElementById("count-tab"),
+	count = "percentage",
+	pauseTab = document.getElementById("pause-tab"),
+	pauseSampling = false;
+
+/* Conditions and defaults */
+// default to show setInterval
+setIntervalCollection.tab.style.fontWeight = "bold";
+requestAnimationFrameCollection.container.style.display = "none";
+// selecting requestAnimationFrame
+setIntervalCollection.tab.onclick = function() { 
+	setIntervalCollection.tab.className = "tab selected-tab";
+	setIntervalCollection.container.style.display = "block";
+	requestAnimationFrameCollection.tab.className = "tab";
+	requestAnimationFrameCollection.container.style.display = "none";
+};
+// selecting setInterval
+requestAnimationFrameCollection.tab.onclick = function() { 
+	requestAnimationFrameCollection.tab.className = "tab selected-tab";
+	requestAnimationFrameCollection.container.style.display = "block";
+	setIntervalCollection.tab.className = "tab";
+	setIntervalCollection.container.style.display = "none";
+};
+// changing setInterval
+setIntervalDelay.onchange = function() {
+	setIntervalDelay.value = setIntervalDelay.value.length ? setIntervalDelay.value : 0;
+	adjustTextboxSize(setIntervalDelay);
+	setIntervalCollection.timelog = {}, setIntervalCollection.fpslog = {};
+	if (!pauseSampling) {
+		clearInterval(setIntervalCollection.process);
+		setIntervalCollection.process = setInterval(setIntervalCollection.profiler, parseInt(setIntervalDelay.value));
+	}
+}
+function adjustTextboxSize(el) {
+	var targetWidth = (el.value.length+2) * 8;
+	el.style.width = targetWidth <= 80 ? targetWidth + 'px' : '80px';
+};
+setIntervalDelay.onkeyup = function() {adjustTextboxSize(setIntervalDelay);}
+setIntervalDelay.onkeydown = function() {adjustTextboxSize(setIntervalDelay);}
+setIntervalDelay.onkeypress = function(e) {return isNumberKey(e);}
+// pause and resume the framerate test
+pauseTab.onclick = function() {
+	pauseSampling = pauseSampling ? false : true;
+	pauseTab.innerHTML = pauseSampling ? "RESUME" : "PAUSE";
+	if (pauseSampling) {
+		clearInterval(setIntervalCollection.process);
+		cancelAnimationFrame(requestAnimationFrameCollection.process);
+	} else {
+		setIntervalCollection.prevTime = Date.now();
+		setIntervalCollection.process = setInterval(setIntervalCollection.profiler, parseInt(setIntervalDelay.value));
+		requestAnimationFrameCollection.prevTime = Date.now();
+		requestAnimationFrameCollection.process = requestAnimationFrame(requestAnimationFrameCollection.profiler);
+	}
+}
+// choose a display format
+function chooseFormat(el) {
+	format = el.innerHTML === "duration" ? "duration" : "fps";
+	output(setIntervalCollection,format,count);
+	output(requestAnimationFrameCollection,format,count);
+}
+// choose a display unit
+function chooseCount(el) {
+	count = el.innerHTML === "percentage" ? "percentage" : "occurrence";
+	output(setIntervalCollection,format,count);
+	output(requestAnimationFrameCollection,format,count);
+}
+
+/* Core functions */
+// testing for setInterval
+setIntervalCollection.profiler = function() {
+	var currTime = Date.now();
+	var diff = currTime - setIntervalCollection.prevTime;
+	setIntervalCollection.timelog[diff] = typeof setIntervalCollection.timelog[diff] === "undefined" ? 1 : setIntervalCollection.timelog[diff] + 1;
+	setIntervalCollection.fpslog[Math.round(1000/diff)] = typeof setIntervalCollection.fpslog[Math.round(1000/diff)] === "undefined" ? 1 : setIntervalCollection.fpslog[Math.round(1000/diff)] + 1;
+	setIntervalCollection.prevTime = currTime;
+	output(setIntervalCollection,format,count);
+}
+setIntervalCollection.process = setInterval(setIntervalCollection.profiler, parseInt(setIntervalDelay.value));
+
+// testing for requestAnimationFrame
+requestAnimationFrameCollection.profiler = function(timestamp) {
+	var currTime = Date.now();
+	var diff = currTime - requestAnimationFrameCollection.prevTime;
+	requestAnimationFrameCollection.timelog[diff] = typeof requestAnimationFrameCollection.timelog[diff] === "undefined" ? 1 : requestAnimationFrameCollection.timelog[diff] + 1;
+	requestAnimationFrameCollection.fpslog[Math.round(1000/diff)] = typeof requestAnimationFrameCollection.fpslog[Math.round(1000/diff)] === "undefined" ? 1 : requestAnimationFrameCollection.fpslog[Math.round(1000/diff)] + 1;
+	requestAnimationFrameCollection.prevTime = currTime;
+	output(requestAnimationFrameCollection,format,count);
+	if (!pauseSampling) requestAnimationFrame(requestAnimationFrameCollection.profiler);
+}
+requestAnimationFrameCollection.process = requestAnimationFrame(requestAnimationFrameCollection.profiler);
+
+// output results
+function output(collection,format,count) {
+	format = format === "fps" ? format : "duration";
+	count = count === "occurrence" ? count : "percentage";
+	var logtype = format === "fps" ? "fpslog" : "timelog";
+	var label = format === "fps" ? "fps" : "ms";
+	var infinityKey = null;
+	if (Object.size(collection[logtype]) > 0) {
+		var keys = [], maxvalue = 0, total = 0;
+		for (var key in collection[logtype]) {
+			if (collection[logtype].hasOwnProperty(key)) {
+				if (key == Number.POSITIVE_INFINITY || key == Number.NEGATIVE_INFINITY) {
+					infinityKey = key;
+				} else {
+					keys.push(parseInt(key));
+				}
+				if (collection[logtype][key] > maxvalue) {
+					maxvalue = collection[logtype][key];
+				}
+				total += collection[logtype][key];
+			}
+		}
+		keys.sort(function(a,b) {return a-b;});
+		if (infinityKey != null) keys.push(infinityKey);
+		var len = keys.length;
+		var tabledata = "<div class='datatable'>";
+		for (var i = 0; i < len; i++) {
+			key = keys[i];
+			if (collection[logtype].hasOwnProperty(key)) {
+				var width = collection[logtype][key]/maxvalue*80;
+				var color = "rgb("+Math.floor(120+collection[logtype][key]/maxvalue*135)+","+Math.floor(200-collection[logtype][key]/maxvalue*100)+",0)";
+				tabledata += "<div class='datarow'><div class='unit-label'>" + ((key ==Number.POSITIVE_INFINITY || key == Number.NEGATIVE_INFINITY) ? "&infin;" : key) + " <span class='unit'>" + label + "</span>&nbsp;</div><div class='bar-container'><div class='bar' style='width:"+  width + "%; background: "+ color +";'>&nbsp;</div>&nbsp;<span class='bar-label' style='color: " + color + ";'>"+ (count === "occurrence" ? collection[logtype][key] : ((collection[logtype][key]/total*100).toFixed(2) + "%")) + "</span></div></div>";
+			}
+		}
+		tabledata += "</div>";
+		collection.report.innerHTML = tabledata;
+	}
+}
+</script>
+</body>
+</html>
