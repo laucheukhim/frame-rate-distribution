@@ -8,7 +8,7 @@
 <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
 <style>
 html {
-	min-width: 1100px;
+	min-width: 1120px;
 }
 body {
 	font-family: 'Fjalla One', sans-serif;
@@ -20,7 +20,7 @@ body {
 #nav-fancy {
 	height: 40px;
 	width: 100%;
-	min-width: 1100px;
+	min-width: 1120px;
 	position: fixed;
 	background: #5d6466;
 	background: -moz-linear-gradient(top, #5d6466 0%, #2f3331 50%, #0a0e0a 51%, #0a0809 100%);
@@ -515,7 +515,7 @@ setIntervalDelay.onchange = function() {
 }
 function adjustTextboxSize(el) {
 	var targetWidth = (el.value.length+2) * 8;
-	el.style.width = targetWidth <= (document.body.clientWidth - (1100 - 32)) ? targetWidth + 'px' : (document.body.clientWidth - (1100 - 32)) + 'px';
+	el.style.width = targetWidth <= (document.body.clientWidth - (1120 - 32)) ? targetWidth + 'px' : (document.body.clientWidth - (1120 - 32)) + 'px';
 };
 setIntervalDelay.onkeyup = function() {adjustTextboxSize(setIntervalDelay);}
 setIntervalDelay.onkeydown = function() {adjustTextboxSize(setIntervalDelay);}
