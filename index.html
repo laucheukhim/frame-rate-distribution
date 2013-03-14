@@ -8,7 +8,7 @@
 <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
 <style>
 html {
-	min-width: 960px;
+	min-width: 1100px;
 }
 body {
 	font-family: 'Fjalla One', sans-serif;
@@ -19,7 +19,7 @@ body {
 #nav-fancy {
 	height: 40px;
 	width: 100%;
-	min-width: 960px;
+	min-width: 1100px;
 	position: fixed;
 	background: #5d6466;
 	background: -moz-linear-gradient(top, #5d6466 0%, #2f3331 50%, #0a0e0a 51%, #0a0809 100%);
@@ -317,6 +317,10 @@ body {
 	background: linear-gradient(to bottom,  #cc2314 0%,#990303 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc2314', endColorstr='#990303',GradientType=0 );
 }
+#nav-fancy #social {
+	float: left;
+	margin-top: 10px;
+}
 #nav-fancy #format-tab, #nav-fancy #count-tab {
 	float: right;
 	height: 30px;
@@ -366,13 +370,17 @@ div.datatable div.datarow {
 
 <body>
 <div id="nav-fancy"><div id="nav-content">
-	<div id="logo" title="Nope. This is a CSS animation." onmouseover="if(this.className!=='highlight'){this.className='highlight';var highlightEl=this;setTimeout(function(){highlightEl.className='';},2000);}">
+	<div id="logo" onmouseover="if(this.className!=='highlight'){this.className='highlight';var highlightEl=this;setTimeout(function(){highlightEl.className='';},2000);}">
     	<span>F</span><span>r</span><span>a</span><span>m</span><span>e</span> <span>r</span><span>a</span><span>t</span><span>e</span>
         <span>D</span><span>i</span><span>s</span><span>t</span><span>r</span><span>i</span><span>b</span><span>u</span><span>t</span><span>i</span><span>o</span><span>n</span>
     </div>
 	<div id="setInterval-tab" class="tab selected-tab">setInterval <input id="setInterval-delay" type="text" value="16" style="position: relative; width:32px; height: 20px; outline:none; border:none; background-color:#41464f; -moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.8); -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.8); box-shadow: inset 0 0 3px rgba(0,0,0,0.8); font-family: 'Fjalla One', sans-serif; font-size: 16px; line-height:12px; color:#fff; text-shadow: 0 -1px 0 #000000; text-align:center;" /></div>
     <div id="requestAnimationFrame-tab" class="tab">requestAnimationFrame</div>
     <div id="pause-tab">PAUSE</div>
+    <div id="social">
+    	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Flaucheukhim.github.com%2Fframe-rate-distribution%2F&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
+        <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><style>.twitter-share-button { width: 90px !important; position:relative; top: -1px; }</style>
+    </div>
     <div id="count-tab">
         <label style="color:#fff;">Count</label>
         <div class="switch candy blue" style="width:150px;height: 20px; font-family: sans-serif;">
@@ -506,7 +514,7 @@ setIntervalDelay.onchange = function() {
 }
 function adjustTextboxSize(el) {
 	var targetWidth = (el.value.length+2) * 8;
-	el.style.width = targetWidth <= 80 ? targetWidth + 'px' : '80px';
+	el.style.width = targetWidth <= (document.body.clientWidth - (1100 - 32)) ? targetWidth + 'px' : (document.body.clientWidth - (1100 - 32)) + 'px';
 };
 setIntervalDelay.onkeyup = function() {adjustTextboxSize(setIntervalDelay);}
 setIntervalDelay.onkeydown = function() {adjustTextboxSize(setIntervalDelay);}
