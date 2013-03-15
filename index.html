@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=0.2" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <title>Frame Rate Distribution</title>
-<link href='reset.css' rel='stylesheet' type='text/css'>
-<link href='toggle-switch.css' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+<link href='reset.css' rel='stylesheet' type='text/css' />
+<link href='toggle-switch.css' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css' />
 <style>
 body {
 	font-family: 'Fjalla One', sans-serif;
@@ -369,6 +369,7 @@ div.datatable div.datarow {
 	height: 20px;
 }
 </style>
+<style>.twitter-share-button { width: 90px !important; position:relative; top: -1px; }</style>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -395,15 +396,15 @@ div.datatable div.datarow {
     <div id="pause-tab">PAUSE</div>
     <div id="social">
     	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Flaucheukhim.github.com%2Fframe-rate-distribution%2F&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
-        <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><style>.twitter-share-button { width: 90px !important; position:relative; top: -1px; }</style>
+        <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
     <div id="count-tab">
         <label style="color:#fff;">Count</label>
         <div class="switch candy blue" style="width:150px;height: 20px; font-family: sans-serif;">
-            <input id="count-percentage" name="count" type="radio" checked>
+            <input id="count-percentage" name="count" type="radio" checked="checked" />
             <label for="count-percentage" onclick="chooseCount(this)" style="line-height:20px; cursor:pointer; outline: none;">percentage</label>
     
-            <input id="count-occurrence" name="count" type="radio">	
+            <input id="count-occurrence" name="count" type="radio" />	
             <label for="count-occurrence" onclick="chooseCount(this)" style="line-height:20px; cursor:pointer; outline: none;">occurrence</label>
             
             <span class="slide-button"></span>
@@ -412,10 +413,10 @@ div.datatable div.datarow {
     <div id="format-tab">
         <label style="color:#fff;">Format</label>
         <div class="switch candy blue" style="width:100px;height: 20px; font-family: sans-serif;">
-            <input id="format-duration" name="format" type="radio" checked>
+            <input id="format-duration" name="format" type="radio" checked="checked" />
             <label for="format-duration" onclick="chooseFormat(this)" style="line-height:20px; cursor:pointer; outline: none;">duration</label>
     
-            <input id="format-fps" name="format" type="radio">	
+            <input id="format-fps" name="format" type="radio" />	
             <label for="format-fps" onclick="chooseFormat(this)" style="line-height:20px; cursor:pointer; outline: none;">fps</label>
             
             <span class="slide-button"></span>
@@ -432,7 +433,8 @@ div.datatable div.datarow {
     <div id="requestAnimationFrame-report"></div>
 </div>
 <div id="footer-padding"></div>
-<script>
+<script type="text/javascript">
+//<![CDATA[
 /* Function preparations */
 // object size
 Object.size = function(obj) {
@@ -627,6 +629,7 @@ function output(collection,format,count) {
 		collection.report.innerHTML = tabledata;
 	}
 }
+//]]>
 </script>
 <script type="text/javascript">
 //<![CDATA[
