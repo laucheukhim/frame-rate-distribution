@@ -1,5 +1,5 @@
 Frame Rate Distribution
-===
+---
 
 - Compare the frame rates between `setInterval` and `requestAnimationFrame`
 - See how the frame rates are distributed
