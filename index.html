@@ -15,14 +15,12 @@ body {
 	font-size: 10px;
 	color: #EEE;
 	background-color: #41464f;
-	min-width: 1120px;
 	min-height: 100%;
 	-webkit-text-size-adjust: 100%;
 }
 #nav-fancy {
 	height: 40px;
 	width: 100%;
-	min-width: 1120px;
 	position: fixed;
 	background: #5d6466;
 	background: -moz-linear-gradient(top, #5d6466 0%, #2f3331 50%, #0a0e0a 51%, #0a0809 100%);
@@ -35,6 +33,7 @@ body {
 	-moz-box-shadow:    0px 1px 4px 0px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);
 	box-shadow:         0px 1px 4px 0px rgba(0,0,0,0.5);
+    overflow: hidden;
 }
 #nav-content {
 	margin-left: 10px;
@@ -330,19 +329,29 @@ body {
 	margin-top: 3px;
 	margin-right: 10px;
 }
+@media (max-width: 920px) {
+    #nav-fancy #count-tab {
+        display: none;
+    }
+}
+@media (max-width: 750px) {
+    #nav-fancy #format-tab {
+        display: none;
+    }
+}
 #nav-padding {
 	height: 50px;
 }
 div.datatable {
-	display:table;width:100%;
+	display:table;
+    width:100%;
 }
 div.datatable div.datarow {
 	display:table-row;
 }
 .unit-label {
 	display:table-cell;
-	width:5%;
-	min-width:50px;
+	width:50px;
 	font-size:10px;
 	line-height:12px;
 	text-align:right;
@@ -353,7 +362,6 @@ div.datatable div.datarow {
 }
 .bar-container {
 	display:table-cell;
-	width:90%;
 }
 .bar {
 	display: inline-block;
@@ -394,10 +402,12 @@ div.datatable div.datarow {
 	<div id="setInterval-tab" class="tab selected-tab">setInterval <input id="setInterval-delay" type="tel" value="16" style="position: relative; width:32px; height: 20px; outline:none; border:none; background-color:#41464f; -moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.8); -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.8); box-shadow: inset 0 0 3px rgba(0,0,0,0.8); font-family: 'Fjalla One', sans-serif; font-size: 16px; line-height:12px; color:#fff; text-shadow: 0 -1px 0 #000000; text-align:center;" /></div>
     <div id="requestAnimationFrame-tab" class="tab">requestAnimationFrame</div>
     <div id="pause-tab">PAUSE</div>
+    <!--
     <div id="social">
     	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Flaucheukhim.github.com%2Fframe-rate-distribution%2F&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
         <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
+    -->
     <div id="count-tab">
         <label style="color:#fff;">Count</label>
         <div class="switch candy blue" style="width:150px;height: 20px; font-family: sans-serif;">
@@ -480,7 +490,7 @@ var setIntervalCollection = {
 	prevTime: Date.now(),
 	profiler: null,
 	process: null
-}
+};
 // collection for requestAnimationFrame
 var requestAnimationFrameCollection = {
 	tab: document.getElementById("requestAnimationFrame-tab"),
@@ -492,7 +502,7 @@ var requestAnimationFrameCollection = {
 	prevTime: Date.now(),
 	profiler: null,
 	process: null
-}
+};
 // interface
 var setIntervalDelay = document.getElementById("setInterval-delay"),
 	formatTab = document.getElementById("format-tab"),
@@ -529,17 +539,17 @@ setIntervalDelay.onchange = function() {
 		clearInterval(setIntervalCollection.process);
 		setIntervalCollection.process = setInterval(setIntervalCollection.profiler, parseInt(setIntervalDelay.value));
 	}
-}
+};
 function adjustTextboxSize(el) {
 	var targetWidth = (el.value.length+2) * 8,
 		defaultWidth = (el.defaultValue.length+2) * 8,
 		pageMinWidth = parseInt(window.getComputedStyle(document.body).getPropertyValue("min-width").replace(/\D/g, '')),
 		pageCurrWidth = document.body.clientWidth;
 	el.style.width = targetWidth <= (pageCurrWidth - (pageMinWidth - defaultWidth)) ? targetWidth + 'px' : (pageCurrWidth - (pageMinWidth - defaultWidth)) + 'px';
-};
-setIntervalDelay.onkeyup = function() {adjustTextboxSize(setIntervalDelay);}
-setIntervalDelay.onkeydown = function() {adjustTextboxSize(setIntervalDelay);}
-setIntervalDelay.onkeypress = function(e) {return isNumberKey(e);}
+}
+setIntervalDelay.onkeyup = function() {adjustTextboxSize(setIntervalDelay);};
+setIntervalDelay.onkeydown = function() {adjustTextboxSize(setIntervalDelay);};
+setIntervalDelay.onkeypress = function(e) {return isNumberKey(e);};
 // pause and resume the framerate test
 pauseTab.onclick = function() {
 	pauseSampling = pauseSampling ? false : true;
@@ -553,7 +563,7 @@ pauseTab.onclick = function() {
 		requestAnimationFrameCollection.prevTime = Date.now();
 		requestAnimationFrameCollection.process = requestAnimationFrame(requestAnimationFrameCollection.profiler);
 	}
-}
+};
 // choose a display format
 function chooseFormat(el) {
 	format = el.innerHTML === "duration" ? "duration" : "fps";
@@ -576,7 +586,7 @@ setIntervalCollection.profiler = function() {
 	setIntervalCollection.fpslog[Math.round(1000/diff)] = typeof setIntervalCollection.fpslog[Math.round(1000/diff)] === "undefined" ? 1 : setIntervalCollection.fpslog[Math.round(1000/diff)] + 1;
 	setIntervalCollection.prevTime = currTime;
 	output(setIntervalCollection,format,count);
-}
+};
 setIntervalCollection.process = setInterval(setIntervalCollection.profiler, parseInt(setIntervalDelay.value));
 
 // testing for requestAnimationFrame
@@ -588,7 +598,7 @@ requestAnimationFrameCollection.profiler = function(timestamp) {
 	requestAnimationFrameCollection.prevTime = currTime;
 	output(requestAnimationFrameCollection,format,count);
 	if (!pauseSampling) requestAnimationFrame(requestAnimationFrameCollection.profiler);
-}
+};
 requestAnimationFrameCollection.process = requestAnimationFrame(requestAnimationFrameCollection.profiler);
 
 // output results
